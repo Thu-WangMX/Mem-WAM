@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - sim_robotwin_full_kv
+  - override /data: rmbench_helios
+  - override /model: fastwam_helios
+  - _self_
+sim_cfg_name: sim_robotwin_helios.yaml
+model:
+  load_text_encoder: true
+  skip_dit_load_from_pretrain: true
+  action_dit_pretrained_path: null
+EVALUATION:
+  task_config: demo_clean
+  action_horizon: 16
+  replan_steps: 16
+  num_inference_steps: 50

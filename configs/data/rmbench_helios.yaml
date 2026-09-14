@@ -1,0 +1,7 @@
+defaults:
+  - rmbench_cover_blocks_fullattention
+  - _self_
+train:
+  _target_: fastwam.datasets.lerobot.helios_dataset.HeliosRobotVideoDataset
+  history_sizes: ${model.helios_config.history_sizes}
+  anchor_frames: ${model.helios_config.anchor_frames}

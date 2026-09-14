@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_latent_kernel_regime_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_latent_kernel_regime.yaml
+
+EVALUATION:
+  policy_name: fastwam_latent_kernel_regime_policy
+  latent_kernel_regime_online: true

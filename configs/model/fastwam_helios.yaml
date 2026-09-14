@@ -1,0 +1,15 @@
+defaults:
+  - fastwam_full_kv
+  - _self_
+memory_backend: helios
+helios_config:
+  history_sizes: [16, 2, 1]
+  anchor_frames: 2
+  patch_long: [4, 8, 8]
+  patch_mid: [2, 4, 4]
+  amplify_history: false
+  condition_augmentation: true
+video_scheduler:
+  training_sampling_scheme: logit_normal
+action_scheduler:
+  training_sampling_scheme: logit_normal

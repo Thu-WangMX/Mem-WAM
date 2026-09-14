@@ -1,0 +1,22 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_control_information_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_control_information.yaml
+
+EVALUATION:
+  artifact_root: null
+  policy_name: fastwam_control_information_policy
+  dynamic_surprise_online: false
+  wrist_event_online: false
+  embodied_information_online: false
+  control_information_online: true
+  control_information_lock: /mnt/vepfs02/output/kevin.wang/memorywam/analysis/putback_control_information_selector_v1/selector_runtime/locked_selector.json
+  control_information_pca: /mnt/vepfs02/output/kevin.wang/memorywam/analysis/putback_four_phase_wam_pca64_v1.pt
+  control_information_feature_predictor: /mnt/vepfs02/output/kevin.wang/memorywam/analysis/putback_feature_predictors_pca64_v1/visual_action/visual_action.fpbin
+  control_information_control_probe: /mnt/vepfs02/output/kevin.wang/memorywam/analysis/putback_control_information_selector_v1/wam_proprio/wam_proprio.cipbin
+  control_information_statistics: /mnt/vepfs02/output/kevin.wang/memorywam/analysis/putback_control_information_selector_v1/selector_candidate/contextual_statistics.pt
+  control_information_init_action_dit_path: /mnt/vepfs02/output/kevin.wang/memorywam/model_assets/fastwam_fullkv_official_init/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt

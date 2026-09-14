@@ -1,0 +1,8 @@
+defaults:
+  - rmbench_putback_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.physical_dynamic_l_dataset.PhysicalDynamicLRobotVideoDataset
+  physical_manifest_path: ${oc.env:PHYSICAL_DYNAMIC_L_MANIFEST}
+  memory_tokens: 8

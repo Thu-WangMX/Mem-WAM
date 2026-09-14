@@ -1,0 +1,41 @@
+# Basic experiment configuration
+policy_name: fastwam_policy
+task_name: null
+task_config: null
+ckpt_setting: null
+seed: 0
+instruction_type: unseen
+eval_num_episodes: 100
+start_scene_seed: null
+
+# fastwam policy args
+sim_cfg_path: null
+sim_task: null
+sim_cfg_name: sim_robotwin.yaml
+mixed_precision: bf16
+device: cuda
+dataset_stats_path: null
+wan_model_id: null
+tokenizer_model_id: null
+redirect_common_files: null
+skip_dit_load_from_pretrain: null
+action_horizon: null
+replan_steps: 8
+num_inference_steps: 10
+sigma_shift: null
+text_cfg_scale: 1.0
+negative_prompt: ""
+rand_device: cpu
+tiled: false
+timing_enabled: false
+skip_get_obs_within_replan: false
+action_delta_fraction: null
+latent_kernel_regime_online: false
+physical_settle_rate_debt_online: false
+wrist_event_online: false
+wrist_event_predictor_repo: null
+wrist_event_checkpoint: null
+wrist_event_threshold: 0.5
+wrist_event_history: 3
+wrist_event_min_segment: 2
+wrist_event_max_segment: 8

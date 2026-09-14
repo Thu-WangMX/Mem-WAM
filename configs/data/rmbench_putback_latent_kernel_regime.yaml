@@ -1,0 +1,8 @@
+defaults:
+  - rmbench_putback_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.latent_kernel_regime_dataset.LatentKernelRegimeRobotVideoDataset
+  latent_kernel_manifest_path: ${oc.env:LATENT_KERNEL_REGIME_MANIFEST}
+  memory_tokens: 8

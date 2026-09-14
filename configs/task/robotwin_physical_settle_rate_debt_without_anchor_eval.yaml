@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - robotwin_physical_settle_rate_debt_eval
+  - _self_
+
+model:
+  native_cache:
+    reader_use_anchor: false
+    reader_use_memory: true
+    reader_use_recent: true

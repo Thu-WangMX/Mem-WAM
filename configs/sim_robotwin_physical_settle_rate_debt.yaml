@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_physical_settle_rate_debt_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_physical_settle_rate_debt.yaml
+
+EVALUATION:
+  policy_name: fastwam_physical_settle_rate_debt_policy
+  physical_settle_rate_debt_online: true

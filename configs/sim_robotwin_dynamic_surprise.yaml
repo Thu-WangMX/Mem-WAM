@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_dynamic_surprise_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_dynamic_surprise.yaml
+
+EVALUATION:
+  policy_name: fastwam_dynamic_surprise_policy
+  dynamic_surprise_online: true
+  dynamic_surprise_sigma: 1.0
+  dynamic_surprise_gamma: 1.5
+  dynamic_surprise_window: 5
+  dynamic_surprise_max_segment: 8
+  dynamic_surprise_scorer_source: policy
+  dynamic_surprise_init_action_dit_path: /mnt/vepfs02/output/kevin_wang/memorywam/model_assets/fastwam_fullkv_official_init/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt
+  dynamic_surprise_noise_mode: per_transition

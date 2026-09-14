@@ -1,0 +1,9 @@
+defaults:
+  - rmbench_cover_blocks_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.physical_settle_rate_debt_dataset.PhysicalSettleRateDebtRobotVideoDataset
+  physical_settle_manifest_path: ${oc.env:PHYSICAL_SETTLE_RATE_DEBT_MANIFEST}
+  manifest_task: cover_blocks
+  memory_tokens: 8

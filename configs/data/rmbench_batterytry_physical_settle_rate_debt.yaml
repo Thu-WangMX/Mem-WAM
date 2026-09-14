@@ -1,0 +1,14 @@
+defaults:
+  - rmbench_cover_blocks_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.physical_settle_rate_debt_dataset.PhysicalSettleRateDebtRobotVideoDataset
+  dataset_dirs:
+    - ${oc.env:RMBENCH_BATTERYTRY_LEROBOT}
+  pretrained_norm_stats: ${oc.env:MEMORYWAM_BATTERYTRY_STATS}
+  full_kv_cache_path: ${oc.env:MEMORYWAM_BATTERYTRY_CONTINUOUS_LATENTS}
+  text_embedding_cache_dir: ${oc.env:MEMORYWAM_BATTERYTRY_TEXT_CACHE}
+  physical_settle_manifest_path: ${oc.env:PHYSICAL_SETTLE_RATE_DEBT_MANIFEST}
+  manifest_task: battery_try
+  memory_tokens: 8

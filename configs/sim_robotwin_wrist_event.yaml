@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_wrist_event_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_wrist_event.yaml
+
+EVALUATION:
+  artifact_root: null
+  policy_name: fastwam_wrist_event_policy
+  dynamic_surprise_online: false
+  wrist_event_online: true
+  wrist_event_predictor_repo: /mnt/vepfs02/output/kevin_wang/memorywam/code/fastwam_wrist_latent_event_predictor
+  wrist_event_checkpoint: /mnt/vepfs02/output/kevin_wang/memorywam/analysis/putback_wrist_latent_event_predictor_v1/best.pt
+  wrist_event_threshold: 0.5
+  wrist_event_history: 3
+  wrist_event_min_segment: 2
+  wrist_event_max_segment: 8

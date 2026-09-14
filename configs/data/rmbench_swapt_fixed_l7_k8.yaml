@@ -1,0 +1,10 @@
+defaults:
+  - rmbench_cover_blocks_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.fixed_length_k8_dataset.FixedLengthK8RobotVideoDataset
+  fixed_segment_length: 7
+  memory_tokens: 8
+  anchor_frames: 2
+  confirmation_delay: 1

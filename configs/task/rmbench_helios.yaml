@@ -1,0 +1,26 @@
+# @package _global_
+defaults:
+  - override /data: rmbench_helios
+  - override /model: fastwam_helios
+  - _self_
+batch_size: 16
+num_gpus: 8
+num_workers: 4
+gradient_accumulation_steps: 1
+learning_rate: 2.0e-4
+lr_scheduler_type: constant
+weight_decay: 1.0e-2
+max_grad_norm: 1.0
+max_steps: null
+num_epochs: 500
+save_every: 2000
+save_training_state: false
+save_final_checkpoint: true
+eval_every: 0
+native_cache_train_mode: full
+model:
+  mot_checkpoint_mixed_attn: true
+  video_dit_config:
+    use_gradient_checkpointing: true
+  action_dit_config:
+    use_gradient_checkpointing: true

@@ -1,0 +1,15 @@
+defaults:
+  - fastwam_native_cache_consolidation
+
+native_cache:
+  enabled: true
+  mode: layerwise
+  # Maximum capacity: the locked selector closes at most six planning frames.
+  memory_tokens: 48
+  # Capacity/fallback rate; formal per-segment K comes from the manifest token plan.
+  dynamic_tokens_per_frame: 8
+  allocation_mode: event_full_forced_half
+  group_size: 4
+  anchor_frames: 2
+  recent_frames: 4
+  recursive: false

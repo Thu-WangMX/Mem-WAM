@@ -1,0 +1,47 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin
+  - override /task: robotwin_full_kv_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_full_kv.yaml
+
+model:
+  load_text_encoder: true
+  skip_dit_load_from_pretrain: true
+  action_dit_pretrained_path: null
+  # Must match training/cache precomputation: both use the converted Wan VAE.
+  # The writable model mirror also contains the converted T5 used by this
+  # redirect path and a tokenizer symlink.
+  redirect_common_files: true
+
+EVALUATION:
+  robotwin_root: /mnt/vepfs02/datasets/kevin_wang/code/projects/RMBench
+  # The 50-episode single-task training set uses the seen RMBench wording.
+  # Keep the first reproduction on the identical language contract.
+  instruction_type: seen
+  action_horizon: 16
+  replan_steps: 16
+  num_inference_steps: 50
+  sigma_shift: 1.0
+  text_cfg_scale: 1.0
+  negative_prompt: ""
+  rand_device: cpu
+  tiled: false
+  timing_enabled: true
+  # Refresh simulator observations every action. The policy still appends
+  # temporal-memory frames only at its configured stride, while videos and
+  # task diagnostics now reflect the actual post-action state.
+  skip_get_obs_within_replan: false
+  # Keep the MemoryWAM-aligned baseline unprojected. Trajectory projection is
+  # available as an explicit evaluation ablation only.
+  action_delta_fraction: null
+  device: cuda
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: .
+  output_subdir: null

@@ -1,0 +1,6 @@
+# @package _global_
+
+defaults:
+  - robotwin_full_kv_eval
+  - override /model: fastwam_segment_compress_k8
+  - _self_

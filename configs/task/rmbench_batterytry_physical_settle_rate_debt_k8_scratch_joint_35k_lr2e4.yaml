@@ -1,0 +1,51 @@
+# @package _global_
+defaults:
+  - override /data: rmbench_batterytry_physical_settle_rate_debt
+  - override /model: fastwam_segment_compress_k8
+  - _self_
+
+output_dir: ${oc.env:BATTERYTRY_PHYSICAL_SETTLE_RATE_OUTPUT}
+batch_size: 1
+num_gpus: 8
+num_workers: 4
+lr_scheduler_type: constant
+learning_rate: 2.0e-4
+num_epochs: 1
+max_steps: 35000
+log_every: 10
+save_every: 0
+save_steps: [5000, 10000, 20000, 25000, 30000, 35000]
+save_training_state: true
+save_training_state_every: 35000
+save_final_checkpoint: true
+save_portable_fsdp_checkpoint: true
+keep_training_state_checkpoints: 1
+checkpoint_tmp_root: /dev/shm
+process_group_timeout_seconds: 7200
+eval_every: 0
+gradient_accumulation_steps: 1
+weight_decay: 1.0e-2
+resume: null
+initial_weights: null
+mixed_precision: bf16
+seed: 42
+max_grad_norm: 1.0
+native_cache_train_mode: full
+data:
+  train:
+    minimum_history_frames: 1
+model:
+  mot_checkpoint_mixed_attn: true
+  video_dit_config:
+    use_gradient_checkpointing: true
+  action_dit_config:
+    use_gradient_checkpointing: true
+  video_scheduler:
+    training_sampling_scheme: logit_normal
+  action_scheduler:
+    training_sampling_scheme: logit_normal
+wandb:
+  enabled: false
+  project: fastwam-physical-settle-rate-debt
+  name: batterytry-physical-settle-t7c5-k8-scratch-joint35k-lr2e4-seed42
+  mode: offline

@@ -1,0 +1,40 @@
+# @package _global_
+
+defaults:
+  - override /data: rmbench_putback_full_kv
+  - override /model: fastwam_full_kv
+  - _self_
+
+output_dir: ${oc.env:FASTWAM_FULL_KV_OUTPUT}
+
+batch_size: 1
+num_workers: 4
+
+model:
+  mot_checkpoint_mixed_attn: true
+
+lr_scheduler_type: constant
+learning_rate: 2.0e-4
+num_epochs: 1
+max_steps: 5000
+log_every: 1
+save_every: 3000
+save_training_state: false
+save_final_checkpoint: true
+eval_every: 0
+eval_num_inference_steps: 10
+
+gradient_accumulation_steps: 1
+weight_decay: 1.0e-2
+resume: null
+mixed_precision: bf16
+seed: 42
+max_grad_norm: 1.0
+
+wandb:
+  enabled: false
+  workspace: null
+  project: fastwam-memory-full-kv
+  name: putback-memorywam-fullkv-v3-5k
+  group: null
+  mode: offline

@@ -1,0 +1,6 @@
+# @package _global_
+
+defaults:
+  - override /data: robotwin_full_kv_eval
+  - override /model: fastwam_full_kv
+  - _self_

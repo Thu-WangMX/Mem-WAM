@@ -1,0 +1,9 @@
+defaults:
+  - rmbench_cover_blocks_fullattention
+  - _self_
+
+train:
+  _target_: fastwam.datasets.lerobot.multimodal_rate_controlled_dataset.MultimodalRateControlledRobotVideoDataset
+  multimodal_manifest_path: ${oc.env:MULTIMODAL_RATE_CONTROLLED_MANIFEST}
+  manifest_task: observe_and_pickup
+  memory_tokens: 8

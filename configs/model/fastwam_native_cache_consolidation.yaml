@@ -1,0 +1,11 @@
+defaults:
+  - fastwam_full_kv
+
+native_cache:
+  enabled: true
+  mode: layerwise
+  memory_tokens: 32
+  group_size: 4
+  anchor_frames: 2
+  recent_frames: 4
+  recursive: false

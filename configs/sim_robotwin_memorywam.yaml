@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - sim_robotwin_full_kv
+  - override /data: rmbench_rearrange_blocks_fixed_l4_k8
+  - override /model: fastwam_segment_compress_k8
+  - _self_
+sim_cfg_name: sim_robotwin_memorywam.yaml
+EVALUATION:
+  task_config: demo_clean

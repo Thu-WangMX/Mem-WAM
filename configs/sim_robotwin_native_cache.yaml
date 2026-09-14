@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - sim_robotwin_full_kv
+  - override /task: robotwin_native_cache_eval
+  - _self_
+
+sim_cfg_name: sim_robotwin_native_cache.yaml
+
+EVALUATION:
+  policy_name: fastwam_native_cache_policy

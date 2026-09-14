@@ -1,0 +1,49 @@
+# @package _global_
+
+defaults:
+  - override /data: rmbench_putback_dynamic_surprise
+  - override /model: fastwam_variable_rate_k8l
+  - _self_
+
+output_dir: ${oc.env:CONTROL_INFORMATION_K8L_OUTPUT}
+batch_size: 1
+num_workers: 4
+lr_scheduler_type: constant
+learning_rate: 2.0e-4
+num_epochs: 1
+max_steps: 30000
+log_every: 10
+save_every: 10000
+save_steps: [5000]
+save_training_state: true
+save_training_state_every: 10000
+save_final_checkpoint: true
+save_portable_fsdp_checkpoint: true
+keep_training_state_checkpoints: 1
+checkpoint_tmp_root: /dev/shm
+eval_every: 0
+gradient_accumulation_steps: 1
+weight_decay: 1.0e-2
+resume: null
+mixed_precision: bf16
+seed: 42
+max_grad_norm: 1.0
+native_cache_train_mode: full
+
+data:
+  train:
+    minimum_history_frames: 1
+
+model:
+  video_scheduler:
+    training_sampling_scheme: logit_normal
+  action_scheduler:
+    training_sampling_scheme: logit_normal
+
+wandb:
+  enabled: false
+  workspace: null
+  project: fastwam-variable-rate-memory
+  name: putback-control-information-anchor2-recent4-k8l-30k-seed42
+  group: null
+  mode: offline
